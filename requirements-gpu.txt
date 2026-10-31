@@ -1,0 +1,10 @@
+# Optional - sketch-guided generation (Stable Diffusion + ControlNet), matting, extra validation
+-r requirements.txt
+torch>=2.1            # install the CUDA build that matches your driver: https://pytorch.org/get-started/locally/
+diffusers>=0.27
+transformers>=4.38
+accelerate>=0.27
+safetensors
+rembg[cpu]>=2.0.50    # use rembg[gpu] if onnxruntime-gpu is available
+trimesh>=4.0          # optional: second-opinion mesh loading in validation
+anthropic>=0.40       # optional: object-name captioning (needs ANTHROPIC_API_KEY)

@@ -1,0 +1,8 @@
+# Core (CPU) - enough for the full pipeline with the 'inflate' backend + web UI + CLI
+numpy>=1.24
+scipy>=1.10
+scikit-image>=0.21
+opencv-python-headless>=4.8
+Pillow>=10.0
+gradio>=5.0,<6
+# Tested here with: numpy 2.4, scipy 1.17, scikit-image 0.26, opencv 4.13, Pillow 12.1 (Python 3.12)
