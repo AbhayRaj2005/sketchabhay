@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sketch2shape-ai
+    runtime: python
+    plan: free
+    branch: main
+    buildCommand: python -m pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: HOST
+        value: 0.0.0.0

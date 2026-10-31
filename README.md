@@ -58,6 +58,18 @@ The workspace selects `sketch2shape/.venv` for VS Code. For PowerShell, activate
 `.\.venv\Scripts\Activate.ps1`; if script execution is restricted, use the `.venv\Scripts\python.exe` path as above.
 The launcher uses the existing environment and does not install or download model weights.
 
+### Deploy publicly on Render
+
+The repository includes `render.yaml` for a Render Blueprint. In the Render Dashboard, choose **New → Blueprint**,
+connect `AbhayRaj2005/sketchabhay`, select branch `main`, and confirm creation. The Blueprint uses the repository root
+(where `app.py` and `requirements.txt` live), installs `requirements.txt`, starts `python app.py`, sets `HOST=0.0.0.0`,
+and leaves `PORT` to Render. When the service reports **Live**, open its `onrender.com` URL from the service page.
+
+The Blueprint selects Render's free plan to avoid unexpected charges. Free instances have limited memory and may sleep
+when idle; if dependency installation or generation runs out of memory, change the service to a paid plan with more RAM.
+The deployed app uses CPU silhouette inflation; this configuration does not install pretrained 3D weights or provide
+learned full-object reconstruction.
+
 ### B. Optional GPU packages / model backends
 ```bash
 .venv\Scripts\python.exe -m pip install torch==2.11.0+cu128 --index-url https://download.pytorch.org/whl/cu128
